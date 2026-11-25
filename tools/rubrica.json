@@ -1,0 +1,67 @@
+{
+  "proyecto": "icc-est-u1-pl3",
+  "maximo": 10,
+  "grupos": [
+    {
+      "id": "C",
+      "nombre": "Orden natural",
+      "maximo": 4,
+      "pruebas": [
+        "evaluacion.ComparableTest#C01",
+        "evaluacion.ComparableTest#C02",
+        "evaluacion.ComparableTest#C03",
+        "evaluacion.ComparableTest#C04",
+        "evaluacion.ComparableTest#C05",
+        "evaluacion.ComparableTest#C06",
+        "evaluacion.ComparableTest#C07",
+        "evaluacion.ComparableTest#C08",
+        "evaluacion.ComparableTest#C09",
+        "evaluacion.ComparableTest#C10",
+        "evaluacion.ComparableTest#C11",
+        "evaluacion.ComparableTest#C12",
+        "evaluacion.ComparableTest#C13",
+        "evaluacion.ComparableTest#C14",
+        "evaluacion.ComparableTest#C15",
+        "evaluacion.ComparableTest#C16",
+        "evaluacion.ComparableTest#C17",
+        "evaluacion.ComparableTest#C18"
+      ]
+    },
+    {
+      "id": "S",
+      "nombre": "Ordenamiento",
+      "maximo": 2,
+      "pruebas": [
+        "evaluacion.SortTest#S01",
+        "evaluacion.SortTest#S02",
+        "evaluacion.SortTest#S03",
+        "evaluacion.SortTest#S04",
+        "evaluacion.SortTest#S05",
+        "evaluacion.SortTest#S06",
+        "evaluacion.SortTest#S07",
+        "evaluacion.SortTest#S08"
+      ]
+    },
+    {
+      "id": "B",
+      "nombre": "Búsqueda binaria",
+      "maximo": 4,
+      "pruebas": [
+        "evaluacion.BusquedaBinariaTest#B01",
+        "evaluacion.BusquedaBinariaTest#B02",
+        "evaluacion.BusquedaBinariaTest#B03",
+        "evaluacion.BusquedaBinariaTest#B04",
+        "evaluacion.BusquedaBinariaTest#B05",
+        "evaluacion.BusquedaBinariaTest#B06",
+        "evaluacion.BusquedaBinariaTest#B07",
+        "evaluacion.BusquedaBinariaTest#B08",
+        "evaluacion.BusquedaBinariaTest#B09",
+        "evaluacion.BusquedaBinariaTest#B10",
+        "evaluacion.BusquedaBinariaTest#B11",
+        "evaluacion.BusquedaBinariaTest#B12",
+        "evaluacion.BusquedaBinariaTest#B13",
+        "evaluacion.BusquedaBinariaTest#B14"
+      ]
+    }
+  ]
+}

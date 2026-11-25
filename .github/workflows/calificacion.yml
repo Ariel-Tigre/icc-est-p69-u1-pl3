@@ -1,0 +1,40 @@
+name: Calificación PL3
+on:
+  push:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evaluar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Ejecutar pruebas y calcular nota
+        run: python tools/evaluar.py
+      - name: Publicar resumen
+        if: always()
+        shell: bash
+        run: |
+          if [ -f build/evaluacion/reporte-calificacion.md ]; then
+            cat build/evaluacion/reporte-calificacion.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo 'Evaluación no concluyente: no se generó el reporte. Revise los pasos anteriores.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Guardar reportes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evaluacion-pl3
+          if-no-files-found: warn
+          path: |
+            build/evaluacion/
+            build/test-results/test/
+            build/reports/tests/test/
