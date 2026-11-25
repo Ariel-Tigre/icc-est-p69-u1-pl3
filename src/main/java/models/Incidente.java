@@ -47,12 +47,22 @@ public class Incidente implements Comparable<Incidente> {
         return registradoEn;
     }
 
-    @Override
+@Override
     public int compareTo(Incidente otro) {
-        // TODO C: definir y utilizar aquí un Comparator<Incidente> compuesto.
-        throw new UnsupportedOperationException("C: compareTo pendiente");
-    }
+        Objects.requireNonNull(otro, "El incidente a comparar no puede ser nulo");
 
+        Comparator<Incidente> comparador = Comparator
+                .comparingInt(Incidente::getSeveridad)
+                .thenComparingInt(Incidente::getMinutosRestantes)
+                .thenComparing((Incidente inc) -> inc.getServicios().size(), Comparator.reverseOrder())
+                .thenComparing((Incidente inc) -> inc.getServicios().stream()
+                        .mapToLong(ServicioAfectado::getUsuariosAfectados)
+                        .sum(), Comparator.reverseOrder())
+                .thenComparing(Incidente::getRegistradoEn)
+                .thenComparing(Incidente::getCodigo, String.CASE_INSENSITIVE_ORDER);
+
+        return comparador.compare(this, otro);
+    }
     @Override
     public String toString() {
         return "%s | severidad=%d | minutos=%d | servicios=%d | fecha=%s"
